@@ -1,0 +1,25 @@
+{
+  "name": "dev-swe-emergencyresponse",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arya-Wadhwani07/dev-swe-emergencyresponse.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arya-Wadhwani07/dev-swe-emergencyresponse/issues"
+  },
+  "homepage": "https://github.com/Arya-Wadhwani07/dev-swe-emergencyresponse#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
