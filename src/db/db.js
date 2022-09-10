@@ -1,8 +1,9 @@
 const { Sequelize } = require('sequelize')
+const database = require("../secrets")
 
-const sequelize = new Sequelize("blrtweikqpvvzbf0hj3c", "ud1l4uj6n18prukr", "HIIBf3UnQE5DVaehKbKn",{
-    host: "blrtweikqpvvzbf0hj3c-mysql.services.clever-cloud.com",
-    dialect: "mysql"
+const sequelize = new Sequelize(database.DATABASE_NAME, database.DATABASE_USERNAME, database.DATABASE_PASSWORD,{
+    host: database.DATABASE_HOST,
+    dialect: database.DATABASE_DIALECT
 })
 
 try{
