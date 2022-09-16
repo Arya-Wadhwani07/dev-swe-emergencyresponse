@@ -1,10 +1,11 @@
 const express = require('express')
 const models = require('../db/db')
 
+
 const router = express.Router()
 
 
-router.get('/home',async(req,res)=>{
+router.get('/home', async(req,res)=>{
     return res.send("Hello World")
 })
 

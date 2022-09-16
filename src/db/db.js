@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize')
-const database = require("../secrets")
+const { database}  = require("../secrets")
 
 const sequelize = new Sequelize(
     database.DATABASE_NAME, 
