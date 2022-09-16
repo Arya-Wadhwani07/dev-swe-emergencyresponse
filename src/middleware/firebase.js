@@ -1,3 +1,4 @@
+// const firebase = require('firebase')
 const firebaseConfig = {
     apiKey: "AIzaSyD4bX50s5gvY71LZCZHebqmGc_S-UQhT8A",
     authDomain: "devswemergencyresponse.firebaseapp.com",
@@ -16,5 +17,4 @@ const createUser = async () => {
     auth.currentUser.getIdToken(true).then((idToken)=>{
         console.log(idToken)
     })
-    promise
 }
