@@ -3,14 +3,7 @@ module.exports = (sequelize, DataTypes)=>{
     const user = sequelize.define('user',{
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate:{
-                checkName(value){
-                    if(!(validator.isAlpha(value))){
-                        throw new Error("Invalid Name!")
-                    }
-                }
-            }
+            allowNull: false
         },
         email:{
             type: DataTypes.STRING,
@@ -37,7 +30,6 @@ module.exports = (sequelize, DataTypes)=>{
         },
         address:{
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false
         },
         dateOfBirth:{
