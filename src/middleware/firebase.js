@@ -18,3 +18,12 @@ const createUser = async () => {
         console.log(idToken)
     })
 }
+
+const signIn = async()=>{
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+    const promise = await firebase.auth().signInWithEmailAndPassword(email, password)
+    auth.currentUser.getIdToken(true).then((idToken)=>{
+        console.log(idToken)
+    })
+}

@@ -21,4 +21,5 @@ module.exports = (sequelize, DataTypes)=>{
             }
         }
     })
+    return emergencyContactInfo
 }

@@ -9,6 +9,15 @@ router.get('/home', async(req,res)=>{
     return res.send("Hello World")
 })
 
+router.get('/user',async(req,res)=>{
+    try{
+        const users = await models.user.findAll()
+        return res.status(200).send(users)
+    } catch(e){
+        return res.status(400).send(e);
+    }
+})
+
 router.post('/user',checkUser,async(req,res)=>{
     try{
         const user = await models.user.create({
@@ -19,12 +28,13 @@ router.post('/user',checkUser,async(req,res)=>{
             dateOfBirth: req.body.dateOfBirth,
             bloodGroup: req.body.bloodGroup
         })
-        return res.send(user)
+        return res.status(200).send(user)
     } catch(e){
-        console.log(e)
+        return res.status(400).send(e)
     }
-    
 })
+
+
 
 
 

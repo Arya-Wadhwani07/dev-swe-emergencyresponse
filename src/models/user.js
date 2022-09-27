@@ -1,4 +1,5 @@
 const validator = require('validator')
+
 module.exports = (sequelize, DataTypes)=>{
     const user = sequelize.define('user',{
         name: {
@@ -41,5 +42,8 @@ module.exports = (sequelize, DataTypes)=>{
             allowNull: false
         }
     })
+    user.asociate = (models)=>{
+        user.hasMany(models.messages,{through:"user_message"})   
+    }
     return user
 }

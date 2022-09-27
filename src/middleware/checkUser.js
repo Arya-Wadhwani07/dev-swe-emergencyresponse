@@ -6,11 +6,11 @@ const checkUser = async(req,res,next)=>{
         throw new Error("USER NOT AUTHORISED!")
     }
     const idToken = req.header("Authorization").replace("Bearer ","")
-    console.log(idToken)
+    // console.log(idToken)
     try{
         admin.auth().verifyIdToken(idToken).then((decodedToken)=>{
             req.user = decodedToken
-            console.log(decodedToken)
+            // console.log(decodedToken)
             next()
         })
     } catch(e){
