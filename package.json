@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest src/tests",
     "dev": "nodemon src/index.js"
   },
   "repository": {
@@ -27,5 +27,8 @@
     "nodemon": "^2.0.19",
     "sequelize": "^4.13.5",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2"
   }
 }
