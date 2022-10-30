@@ -7,9 +7,9 @@ const sequelize = new Sequelize(
     database.DATABASE_PASSWORD, {
     host: database.DATABASE_HOST,
     dialect: database.DATABASE_DIALECT,
-    // sync:{
-    //     force:true
-    // }
+    sync:{
+        force:true
+    }
 })
 
 const models = {
@@ -30,7 +30,7 @@ try {
     sequelize.authenticate().then(()=>{
         console.log("Authentication Successfull")
     })
-    sequelize.sync({logging: true }).then(()=>{
+    sequelize.sync({force: true,logging: true }).then(()=>{
         console.log("Synchronised Successfully")
     })
 } catch(e) {

@@ -16,7 +16,6 @@ router.get("/messages", async(req,res)=>{
 router.post("/messages",checkUser, async(req,res)=>{
     try{
         const user = await models.user.findAll({where:{email:req.user.email}})
-        console.log(user[0])
         const messages = await models.messages.create({
             userId: user[0].dataValues.id,
             emergencyType: req.body.emergencyType,
