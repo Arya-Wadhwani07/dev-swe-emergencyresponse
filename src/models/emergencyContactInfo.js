@@ -1,6 +1,10 @@
 const validator = require('validator')
 module.exports = (sequelize, DataTypes)=>{
     const emergencyContactInfo = sequelize.define('emergencyContactInfo',{
+        userId:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         name:{
             type: DataTypes.STRING,
             allowNull: false,
