@@ -39,3 +39,43 @@ test("Checking with improper blood group",async()=>{
     })
     expect(res.status).toBe(400)
 })
+
+test("Checking with null name",async()=>{
+    const res = await request(app).post('/user').set('Authorization','Bearer '+token).send({
+        contactNumber:"7722043607",
+        address:"ABCD",
+        dateOfBirth: "07/08/2002",
+        bloodGroup:"A+" 
+    })
+    expect(res.status).toBe(400)
+})
+
+test("Checking with null address",async()=>{
+    const res = await request(app).post('/user').set('Authorization','Bearer '+token).send({
+        name:"Arya",
+        contactNumber:"7722043607",
+        dateOfBirth: "07/08/2002",
+        bloodGroup:"A+" 
+    })
+    expect(res.status).toBe(400)
+})
+
+test("Checking with null date of birth",async()=>{
+    const res = await request(app).post('/user').set('Authorization','Bearer '+token).send({
+        name:"Arya",
+        contactNumber:"7722043607",
+        address:"ABCD",
+        bloodGroup:"A+" 
+    })
+    expect(res.status).toBe(400)
+})
+
+test("Checking with null blood group",async()=>{
+    const res = await request(app).post('/user').set('Authorization','Bearer '+token).send({
+        name:"Arya",
+        contactNumber:"7722043607",
+        address:"ABCD",
+        dateOfBirth: "07/08/2002",
+    })
+    expect(res.status).toBe(400)
+})
