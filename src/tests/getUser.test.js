@@ -16,6 +16,7 @@ test("Create a User",async()=>{
         bloodGroup:"A+"  
     })
     expect(res.status).toBe(200)
+    // done()
 })
 
 test("Checking with improper phone number",async()=>{
@@ -27,6 +28,7 @@ test("Checking with improper phone number",async()=>{
         bloodGroup:"A+" 
     })
     expect(res.status).toBe(400)
+    // done()
 })
 
 test("Checking with improper blood group",async()=>{
@@ -38,6 +40,7 @@ test("Checking with improper blood group",async()=>{
         bloodGroup:"C+" 
     })
     expect(res.status).toBe(400)
+    // done()
 })
 
 test("Checking with null name",async()=>{
@@ -48,6 +51,7 @@ test("Checking with null name",async()=>{
         bloodGroup:"A+" 
     })
     expect(res.status).toBe(400)
+    // done()
 })
 
 test("Checking with null address",async()=>{
@@ -58,6 +62,7 @@ test("Checking with null address",async()=>{
         bloodGroup:"A+" 
     })
     expect(res.status).toBe(400)
+    // done()
 })
 
 test("Checking with null date of birth",async()=>{
@@ -68,6 +73,7 @@ test("Checking with null date of birth",async()=>{
         bloodGroup:"A+" 
     })
     expect(res.status).toBe(400)
+    // done()
 })
 
 test("Checking with null blood group",async()=>{
@@ -78,4 +84,5 @@ test("Checking with null blood group",async()=>{
         dateOfBirth: "07/08/2002",
     })
     expect(res.status).toBe(400)
+    // done()
 })
