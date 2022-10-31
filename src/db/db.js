@@ -28,10 +28,10 @@ Object.keys(models).forEach((modelName) => {
 
 try {
     sequelize.authenticate().then(()=>{
-        console.log("Authentication Successfull")
+        // console.log("Authentication Successfull")
     })
-    sequelize.sync({force: true,logging: true }).then(()=>{
-        console.log("Synchronised Successfully")
+    sequelize.sync({force: true,logging: false }).then(()=>{
+        // console.log("Synchronised Successfully")
     })
 } catch(e) {
     console.log(e)
