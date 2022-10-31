@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand --force-exit src/tests",
+    "test": "jest src/tests",
     "dev": "nodemon src/index.js"
   },
   "repository": {
