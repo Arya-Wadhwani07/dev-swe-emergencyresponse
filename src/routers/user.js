@@ -17,7 +17,6 @@ router.get('/users',async(req,res)=>{
         return res.status(400).send(e);
     }
 })
-
 router.get('/user',checkUser,async(req,res)=>{
     try{
         const user = await models.user.findAll({where:{email:req.user.email}})
