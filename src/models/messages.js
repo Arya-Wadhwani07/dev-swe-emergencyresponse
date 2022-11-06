@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         extraInformation:{
             type: DataTypes.STRING
+        },
+        notified:{
+            type: DataTypes.ENUM("TRUE","FALSE"),
+            default: "FALSE"
         }
     })
     messages.associate = (models)=>{

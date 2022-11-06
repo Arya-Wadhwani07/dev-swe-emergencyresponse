@@ -1,4 +1,5 @@
 const express = require("express")
+const axios = require('axios').default;
 const models = require("../db/db")
 const checkUser = require("../middleware/checkUser")
 
@@ -26,6 +27,29 @@ router.post("/messages",checkUser, async(req,res)=>{
         return res.status(200).send(messages)
     } catch(e){
         return res.status(400).send(e)
+    }
+})
+
+router.get("/priorityMessage", async(req,res)=>{
+    try{
+        var messagesArray = []
+        const messages = await models.findAll({where:{notified:"FALSE"}})
+        console.log(messages)
+        messages.forEach(message => {
+            messagesArray.push(message.emergencyMessage)
+        });
+        console.log(messagesArray)
+        const data = {
+            text:messagesArray
+        }
+        axios.post("http://127.0.0.1:5000",data).then(function (response) {
+            res.status(200).send(response)
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    } catch(e){
+        res.status(400).send(e)
     }
 })
 
