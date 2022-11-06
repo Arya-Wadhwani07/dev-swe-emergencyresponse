@@ -20,7 +20,8 @@ router.post("/messages",checkUser, async(req,res)=>{
             userId: user[0].dataValues.id,
             emergencyType: req.body.emergencyType,
             emergencyMessage: req.body.emergencyMessage,
-            location: req.body.location
+            location: req.body.location,
+            extraInformation: req.body.extraInformation
         })
         return res.status(200).send(messages)
     } catch(e){
