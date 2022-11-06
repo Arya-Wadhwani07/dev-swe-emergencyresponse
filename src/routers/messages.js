@@ -76,7 +76,7 @@ router.post("/priorityMessage", async (req, res) => {
         notified: "TRUE"
     }, {
         where: {
-            emergencyMessage: message
+            id: message
         }
     })
 })
