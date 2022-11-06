@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes)=>{
         },
         victimeAge:{
             type:DataTypes.INTEGER,
+            allowNull: false,
             validate:{
                 checkAge(value){
                     if(!validator.isInt(value)){
