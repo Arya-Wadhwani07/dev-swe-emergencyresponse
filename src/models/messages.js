@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         emergencyMessage: {
             type: DataTypes.TEXT,
             allowNull: false
+        },
+        location:{
+            type: DataTypes.STRING,
+            allowNull: false
         }
     })
     messages.associate = (models)=>{

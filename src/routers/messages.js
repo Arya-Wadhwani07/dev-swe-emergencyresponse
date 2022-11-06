@@ -19,7 +19,8 @@ router.post("/messages",checkUser, async(req,res)=>{
         const messages = await models.messages.create({
             userId: user[0].dataValues.id,
             emergencyType: req.body.emergencyType,
-            emergencyMessage: req.body.emergencyMessage
+            emergencyMessage: req.body.emergencyMessage,
+            location: req.body.location
         })
         return res.status(200).send(messages)
     } catch(e){
