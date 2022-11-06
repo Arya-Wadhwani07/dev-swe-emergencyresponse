@@ -11,7 +11,6 @@ const sequelize = new Sequelize(
     //     force:true
     // }
 })
-
 const models = {
     user: sequelize.import("../models/user"),
     messages: sequelize.import("../models/messages"),
