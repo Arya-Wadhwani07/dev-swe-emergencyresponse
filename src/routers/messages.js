@@ -72,13 +72,19 @@ router.get("/priorityMessage", async (req, res) => {
 
 router.post("/priorityMessage", async (req, res) => {
     const message = req.body.id
-    await models.messages.update({
-        notified: "TRUE"
-    }, {
-        where: {
-            id: message
-        }
-    })
+    try{
+        const updated = await models.messages.update({
+            notified: "TRUE"
+        }, {
+            where: {
+                id: message
+            }
+        })
+        res.status(200).send(updated)
+    } catch(e){
+        res.status(400).send(e)
+    }
+    
 })
 
 
