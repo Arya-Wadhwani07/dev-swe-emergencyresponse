@@ -13,15 +13,8 @@ module.exports = (sequelize, DataTypes)=>{
             allowNull: false
         },
         victimAge:{
-            type:DataTypes.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
-            validate:{
-                checkAge(value){
-                    if(!validator.isInt(value)){
-                        throw new Error("Invalid Age!")
-                    }
-                }
-            }
         }
     })
     return police
