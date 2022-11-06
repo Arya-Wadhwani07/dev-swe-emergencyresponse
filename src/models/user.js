@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes)=>{
         }
     })
     user.asociate = (models)=>{
-        user.hasMany(models.messages,{through:"user_message"})   
+        user.hasMany(models.messages)   
     }
     return user
 }

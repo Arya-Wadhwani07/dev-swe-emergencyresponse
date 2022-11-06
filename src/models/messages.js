@@ -28,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     messages.associate = (models)=>{
         messages.belongsTo(models.user,{
             foreignKey: "userId",
-            through:"user_message"
         })
     }
     return messages

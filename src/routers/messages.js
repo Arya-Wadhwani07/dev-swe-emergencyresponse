@@ -1,4 +1,4 @@
-const express = require("express")
+const express = require("express");
 const axios = require('axios').default;
 const models = require("../db/db")
 const checkUser = require("../middleware/checkUser")
@@ -37,16 +37,17 @@ router.get("/priorityMessage", async (req, res) => {
         var finale
         var temp
         var finale_data = []
-        const messages = await models.messages.findAll({ where: { notified: "FALSE" } })
+        const messages = await models.messages.findAll({include:'user',where: { notified: "FALSE" } })
         Promise.all(messages.map(message => {
-            messagesArray.push(message.emergencyMessage)
+            messagesArray.push(message.dataValues.emergencyMessage)
         }))
         const data = { text: messagesArray }
         await axios.post("https://disaster-response-api-01.herokuapp.com", data)
             .then(async (response) => {
                 temp = response.data
-                console.log(temp)
+                // console.log(temp)
                 const final_data = await models.messages.findAll({
+                    include:"user",
                     where: {
                         emergencyMessage: {
                             in: temp
@@ -67,5 +68,18 @@ router.get("/priorityMessage", async (req, res) => {
         res.status(400).send(e)
     }
 })
+
+
+router.post("/priorityMessage", async (req, res) => {
+    const message = req.body.message
+    await models.messages.update({
+        notified: "TRUE"
+    }, {
+        where: {
+            emergencyMessage: message
+        }
+    })
+})
+
 
 module.exports = router
