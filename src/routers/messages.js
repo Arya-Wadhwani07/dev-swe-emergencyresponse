@@ -71,7 +71,7 @@ router.get("/priorityMessage", async (req, res) => {
 
 
 router.post("/priorityMessage", async (req, res) => {
-    const message = req.body.message
+    const message = req.body.id
     await models.messages.update({
         notified: "TRUE"
     }, {
